@@ -2,15 +2,18 @@
 .git
 .gitignore
 
-# Ignore Docker compose files (но НЕ Dockerfile)
+# Ignore Docker compose files (но НЕ корневой Dockerfile)
 docker-compose*
 codev/Dockerfile*
 codev-bot/Dockerfile*
 
-# Ignore docs and scripts
+# Ignore docs and scripts  
 scripts/
 *.md
 !README.md
+DEPLOY_FIX.md
+NPM_CI_FIX.md
+DEPLOYMENT.md
 
 # Ignore environment files
 **/.env
@@ -22,13 +25,11 @@ codev-bot/logs/
 **/logs/
 **/*.log
 
-# Ignore node_modules and build artifacts (но НЕ статические файлы и package-lock.json)
+# Ignore node_modules and build artifacts
 **/node_modules/
 **/.next/
 **/dist/
 **/build/
-# НЕ игнорируем package-lock.json
-!**/package-lock.json
 
 # Ignore Python cache
 **/__pycache__/
@@ -41,3 +42,15 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# НЕ игнорируем важные файлы проекта
+!codev/
+!codev-bot/
+!codev/package.json
+!codev/package-lock.json
+!codev/src/
+!codev/public/
+!codev/next.config.ts
+!codev/tsconfig.json
+!codev/postcss.config.mjs
+!codev/eslint.config.mjs
