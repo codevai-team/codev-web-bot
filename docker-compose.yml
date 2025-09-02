@@ -1,0 +1,44 @@
+# Docker Compose file for Codev project
+
+services:
+  # Codev Web Application
+  codev-web:
+    build:
+      context: ./codev
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./codev/.env
+    environment:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+    restart: unless-stopped
+    networks:
+      - codev-network
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  # Codev Telegram Bot
+  codev-bot:
+    build:
+      context: ./codev-bot
+      dockerfile: Dockerfile
+    env_file:
+      - ./codev-bot/.env
+    restart: unless-stopped
+    networks:
+      - codev-network
+    volumes:
+      - ./codev-bot/logs:/app/logs
+
+networks:
+  codev-network:
+    driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: "false"
+
+
