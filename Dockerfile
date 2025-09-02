@@ -23,13 +23,13 @@ WORKDIR /app
 # Этап установки зависимостей
 FROM base AS deps
 COPY codev/package*.json ./
-RUN npm ci --only=production
+RUN npm install --only=production
 
 # Этап сборки
 FROM base AS builder
 WORKDIR /app
 COPY codev/package*.json ./
-RUN npm ci
+RUN npm install
 COPY codev/ ./
 
 # Сборка приложения

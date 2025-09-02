@@ -22,11 +22,13 @@ codev-bot/logs/
 **/logs/
 **/*.log
 
-# Ignore node_modules and build artifacts (но НЕ статические файлы)
+# Ignore node_modules and build artifacts (но НЕ статические файлы и package-lock.json)
 **/node_modules/
 **/.next/
 **/dist/
 **/build/
+# НЕ игнорируем package-lock.json
+!**/package-lock.json
 
 # Ignore Python cache
 **/__pycache__/
