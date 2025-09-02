@@ -3,13 +3,16 @@
 .gitignore
 
 # Ignore Docker files
-Dockerfile*
 docker-compose*
 .dockerignore
+# Но НЕ игнорируем корневой Dockerfile для деплоя
+codev/Dockerfile*
+codev-bot/Dockerfile*
 
-# Ignore scripts and docs
+# Ignore scripts and docs  
 scripts/
 *.md
+!README.md
 
 # Ignore environment files  
 **/.env
@@ -19,6 +22,15 @@ scripts/
 # Ignore logs
 **/logs/
 **/*.log
+codev-bot/logs/
+
+# Ignore build artifacts
+**/node_modules/
+**/.next/
+**/dist/
+**/build/
+**/__pycache__/
+**/*.pyc
 
 # Ignore OS files
 .DS_Store
@@ -33,3 +45,9 @@ Thumbs.db
 # Ignore temporary files
 **/tmp/
 **/temp/
+
+# Ignore test files
+**/test/
+**/tests/
+**/*.test.*
+**/*.spec.*
