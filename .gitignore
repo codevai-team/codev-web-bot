@@ -180,6 +180,7 @@ data/
 !codev/
 !codev-bot/
 !codev/src/
+!codev/src/lib/
 !codev/public/
 !codev/package.json
 !codev/package-lock.json

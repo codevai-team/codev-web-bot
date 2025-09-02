@@ -49,6 +49,7 @@ Thumbs.db
 !codev/package.json
 !codev/package-lock.json
 !codev/src/
+!codev/src/lib/
 !codev/public/
 !codev/next.config.ts
 !codev/tsconfig.json
