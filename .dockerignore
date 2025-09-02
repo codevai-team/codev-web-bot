@@ -2,52 +2,40 @@
 .git
 .gitignore
 
-# Ignore Docker files
+# Ignore Docker compose files (но НЕ Dockerfile)
 docker-compose*
-.dockerignore
-# Но НЕ игнорируем корневой Dockerfile для деплоя
 codev/Dockerfile*
 codev-bot/Dockerfile*
 
-# Ignore scripts and docs  
+# Ignore docs and scripts
 scripts/
 *.md
 !README.md
 
-# Ignore environment files  
+# Ignore environment files
 **/.env
 **/.env.*
 !**/.env.template
 
 # Ignore logs
+codev-bot/logs/
 **/logs/
 **/*.log
-codev-bot/logs/
 
-# Ignore build artifacts
+# Ignore node_modules and build artifacts (но НЕ статические файлы)
 **/node_modules/
 **/.next/
 **/dist/
 **/build/
+
+# Ignore Python cache
 **/__pycache__/
 **/*.pyc
 
-# Ignore OS files
+# Ignore OS and IDE files
 .DS_Store
 Thumbs.db
-
-# Ignore IDE files
 .vscode/
 .idea/
 *.swp
 *.swo
-
-# Ignore temporary files
-**/tmp/
-**/temp/
-
-# Ignore test files
-**/test/
-**/tests/
-**/*.test.*
-**/*.spec.*

@@ -47,12 +47,12 @@ ENV NODE_OPTIONS="--max-old-space-size=4096"
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# Копируем статические файлы 
-COPY codev/public ./public
-
 # Копируем сборку приложения из standalone
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
+
+# Копируем статические файлы из builder
+COPY --from=builder /app/public ./public
 
 # Меняем владельца файлов
 RUN chown -R nextjs:nodejs /app
